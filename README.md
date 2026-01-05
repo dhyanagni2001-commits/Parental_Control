@@ -1,5 +1,5 @@
-🛡️ AEGIS COGNITION
-Parental Control & Screen-Time Manager (Chrome Extension)
+# 🛡️ **AEGIS COGNITION**
+# **Parental Control & Screen-Time Manager (Chrome Extension)**
 
 Aegis Cognition is a Chrome extension that helps you:
 
@@ -16,7 +16,7 @@ enable kid-safe browsing
 It is built using Chrome Manifest V3.
 There are no servers, no tracking, and all data stays on your device.
 
-⭐ Features
+# ⭐ Features
 
 per-website time tracking
 
@@ -34,7 +34,7 @@ optional kid-mode
 
 all data stored locally in Chrome
 
-🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 JavaScript
 
@@ -48,7 +48,7 @@ Content Scripts
 
 Chrome Storage API
 
-🚀 How to Install
+# 🚀 How to Install
 
 Download or clone this project
 
@@ -60,7 +60,7 @@ Click Load unpacked
 
 Select this project folder
 
-📘 How to Use
+# 📘 How to Use
 
 open popup → Settings
 
@@ -74,7 +74,7 @@ add blocked keywords
 
 when limit is reached → password is required to continue
 
-🔐 Privacy
+# 🔐 Privacy
 
 no data collection
 

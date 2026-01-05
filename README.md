@@ -1,149 +1,144 @@
-🛡 Aegis Cognition – Parental Control & Screen-Time Manager (Chrome Extension)
+🛡️ AEGIS COGNITION
+Parental Control & Screen-Time Manager – Chrome Extension
 
-Aegis Cognition is a Chrome extension that helps parents and individuals reduce distraction, limit social-media screen time, and block adult content safely.
+Aegis Cognition is a powerful yet privacy-respecting Chrome extension that helps parents and individuals:
 
-It combines:
+⏱️ limit daily screen-time
 
-⏱ per-site time tracking
+🚫 automatically block distracting / harmful sites
 
-🚫 auto-blocking when time is exhausted
+🔐 require password for overrides and settings
 
-🔐 password-protected override
+👶 enable kid-safe browsing mode
 
-🧑‍👧‍👦 kid-safe mode
+🛡️ filter adult content with keywords & domains
 
-📝 customizable domain & keyword blocklists
+Built entirely using Chrome Manifest V3 with no external servers or data collection.
 
-Built with Manifest V3, vanilla JavaScript, and Chrome APIs — no external servers or tracking.
+⭐ FEATURES
+⏱️ Smart Time Tracking
 
-✨ Features
-⏱ Intelligent Time Tracking
+tracks active time per domain
 
-tracks active browsing time per domain
-
-resets daily
+resets automatically every day
 
 works across tabs & windows
 
-stored locally via chrome.storage.local
+data stored locally only
 
 🚫 Screen-Time Limits
 
 default = no limit (infinite)
 
-parent can set daily limit (minutes)
+parent can set daily limits
 
 optional per-site limits
 
-automatic blocking when limit reached
+site is blocked when time finishes
 
 🔐 Password-Protected Override
 
-When blocked:
+When a website is blocked:
 
-user sees safe “blocked” page
+user sees the blocked screen
 
-password required to continue
+password is required to continue
 
-approved sites are temporarily whitelisted
+domain is temporarily whitelisted
 
-🛡 Adult Content Filtering
+🛡️ Adult Content Filtering
 
-configurable keyword blocklist
+Block based on:
 
-configurable domain blocklist
+❌ domains (ex: pornhub.com)
 
-blocks automatically on detection
+❌ keywords (ex: xxx, nsfw)
+
+editable lists
 
 🔒 Secure Settings
 
-Password required for:
+Password required to:
 
-changing time limits
+change limits
 
-editing blocklists
+edit blocked sites
 
-enabling kid-mode
+edit blocked keywords
 
-Settings can be opened, but cannot be changed without parent password.
+toggle kid mode
+
+Settings can be viewed without password, but cannot be changed without password.
 
 👶 Kid Mode
 
-Optional “child mode”:
+Optional:
 
 prevents casual tampering
 
-keeps override password-protected
+keeps override password protected
 
-blocks sensitive pages
+blocks sensitive sites
 
-🏗️ Technology Used
+🛠️ TECHNOLOGY STACK
 
-JavaScript (ES6)
+✅ JavaScript (ES6)
 
-Chrome Extensions – Manifest V3
+✅ Chrome Extensions API — Manifest V3
 
-Background Service Worker
+✅ Background Service Worker
 
-Content Scripts
+✅ Content Scripts
 
-HTML / CSS
+✅ HTML / CSS
 
-Chrome Storage API
+✅ Chrome Storage API
 
-No backend. No framework. No user tracking.
+No backend. No frameworks. No telemetry.
 
-🧩 Project Structure
+📂 PROJECT STRUCTURE
 aegis-cognition/
 │
 ├── manifest.json
-├── background.js          # time tracking & enforcement logic
-├── popup.html / popup.js  # UI showing daily usage
-├── options.html           # settings page (styled)
-├── options.js             # password-protected settings logic
-├── blocked.html           # time limit / adult content block page
-├── blocked.js             # override password logic
-├── filter.js              # content filtering logic
+├── background.js
+├── popup.html / popup.js
+├── options.html / options.js
+├── blocked.html / blocked.js
+├── filter.js
 └── icons/ (optional)
 
-🚀 Installation
-Developer Mode (local install)
+🚀 INSTALLATION
+🔧 Local Developer Install
 
-Clone or download this repository
+Download or clone this repo
 
-Open Chrome and go to:
+Open Chrome and navigate to:
 
 chrome://extensions
 
 
 Enable Developer Mode
 
-Click Load Unpacked
+Click Load unpacked
 
 Select the project folder
 
-Extension will appear in your toolbar.
+You will now see the extension in the toolbar 🎉
 
-🧭 Usage Guide
-1️⃣ First time setup
+📘 USAGE GUIDE
+🟢 Step 1 — Set Parent Password
 
-open extension popup
+Open popup → Settings → Set password
 
-click Settings
+🔵 Step 2 — Configure Time Limits
 
-set a parent password
+set minutes per day
 
-2️⃣ Set screen-time limits
+attempting to save will require password
 
-enter daily minutes
+🟣 Step 3 — Customize Blocked Sites
 
-save
-
-password will be requested
-
-3️⃣ Add blocked sites or keywords
-
-Examples:
+Domains example:
 
 youtube.com
 instagram.com
@@ -156,69 +151,64 @@ porn
 xxx
 nsfw
 
-4️⃣ When time is up
+🔴 Step 4 — When Time Runs Out
 
-extension blocks the site
+page is blocked
 
-override requires password
+password required to continue
 
-🔐 Privacy & Data Policy
+🔐 PRIVACY POLICY
 
-Your data stays on your device.
+Your data never leaves your browser.
 
-❌ no servers
+❌ no remote servers
 
 ❌ no analytics
 
 ❌ no tracking
 
-✔ local storage only (chrome.storage.local)
+✔ stored locally using chrome.storage.local
 
-✔ inspectable source code
+Password is local (hashing planned in roadmap).
 
-Password is currently stored in plain text locally
-(optional upgrade: hashing supported — see roadmap)
-
-🛠️ Implementation Details
+🧠 IMPLEMENTATION NOTES
 
 This project demonstrates:
 
-manifest v3 lifecycle management
+Manifest V3 architecture
 
-service workers vs background pages
+async event-driven service workers
 
-Chrome storage event synchronization
+secure override design UX
 
-dynamic content blocking architecture
+per-domain time tracking
 
-secure override flows
+safe content interception
 
-UX constraints inside popup environment
+Chrome storage synchronization
 
-Excellent talking points for technical interviews.
+This is excellent interview discussion material.
 
-🧭 Known Limitations
+⚠️ KNOWN LIMITATIONS
 
-password is stored unhashed locally
+password currently stored unhashed
 
-cannot prevent user from uninstalling extension
+cannot prevent uninstalling extension
 
-some adult sites rely on obfuscation
+not synced across devices (yet)
 
-time tracking does not sync across devices (yet)
+some adult content may evade keyword filters
 
-🗺️ Roadmap
+🗺️ ROADMAP
 
-🔑 hash & salt password before storage
+🔑 hash + salt password
 
-🌐 Firebase / cloud sync for families
+☁️ cloud sync across devices
 
-📊 weekly analytics dashboard
+📊 usage charts / analytics dashboard
 
-🧑‍👧‍👦 full “hard” kid-lock mode
+🧒 full hard-lock kid mode
 
 🌙 incognito support
 
-🛍 publish to Chrome Web Store
-
-Pull requests welcome.
+🛍 publish on Chrome Web Store

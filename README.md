@@ -1,256 +1,224 @@
-🛡 Aegis Cognition — Parental Control & Screen-Time Manager (Chrome Extension)
+🛡 Aegis Cognition – Parental Control & Screen-Time Manager (Chrome Extension)
 
-Aegis Cognition is a Chrome extension that helps parents and individuals limit screen-time on social media, block adult content, and require passwords for overrides and settings changes.
+Aegis Cognition is a Chrome extension that helps parents and individuals reduce distraction, limit social-media screen time, and block adult content safely.
 
 It combines:
 
 ⏱ per-site time tracking
 
-🛑 automatic blocking after limit
+🚫 auto-blocking when time is exhausted
 
-🔓 password-based override
+🔐 password-protected override
 
-🧑‍🧒 kid mode options
+🧑‍👧‍👦 kid-safe mode
 
-🔤 domain + keyword blocking
+📝 customizable domain & keyword blocklists
 
-🔐 password-protected settings changes
-
-🌙 polished UI for popup and blocked page
-
-Built entirely with Manifest V3, service workers, and content scripts.
+Built with Manifest V3, vanilla JavaScript, and Chrome APIs — no external servers or tracking.
 
 ✨ Features
-🕒 Time Tracking
+⏱ Intelligent Time Tracking
 
-tracks active time per website
+tracks active browsing time per domain
 
-runs in Manifest V3 background service worker
+resets daily
 
-works across tabs/windows
+works across tabs & windows
 
-resets automatically per day
+stored locally via chrome.storage.local
 
-stored locally in chrome.storage.local
+🚫 Screen-Time Limits
 
-🚫 Usage Limits
+default = no limit (infinite)
 
-default = infinite time (no blocking)
+parent can set daily limit (minutes)
 
-parent can set global time or per-site limits
+optional per-site limits
 
-when limit is reached:
+automatic blocking when limit reached
 
-page automatically blocks
+🔐 Password-Protected Override
 
-user must enter password to continue
+When blocked:
 
-🔓 Secure Override Mode
+user sees safe “blocked” page
 
-When time limit is reached:
+password required to continue
 
-blocked page appears
+approved sites are temporarily whitelisted
 
-user enters parent password
+🛡 Adult Content Filtering
 
-domain added to temporary whitelist
+configurable keyword blocklist
 
-access continues for rest of the day
+configurable domain blocklist
 
-🛡 Adult Content Filter
+blocks automatically on detection
 
-Blocks websites containing:
+🔒 Secure Settings
 
-known adult domains (configurable)
+Password required for:
 
-flagged keywords in page content
+changing time limits
 
-🔐 Password-Protected Settings
+editing blocklists
 
-Password is required when:
+enabling kid-mode
 
-setting time limit
+Settings can be opened, but cannot be changed without parent password.
 
-changing time limit
+👶 Kid Mode
 
-adding blocked domains
+Optional “child mode”:
 
-adding adult keywords
+prevents casual tampering
 
-toggling kid mode
+keeps override password-protected
 
-Password is not required to view settings, only to save changes.
+blocks sensitive pages
 
-👶 Kid Mode (configurable)
-
-Currently supports:
-
-password-protected settings edits
-
-optional:
-
-hide settings button
-
-disable override access
-
-stricter blocklists (future enhancement)
-
-🎨 Beautiful UI
-
-Includes:
-
-popup usage dashboard
-
-blocked screen card UI
-
-settings page forms
-
-dark theme
-
-🏗️ Tech Stack
+🏗️ Technology Used
 
 JavaScript (ES6)
 
-Chrome Extensions API (Manifest V3)
+Chrome Extensions – Manifest V3
 
-Background service workers
+Background Service Worker
 
-Content scripts
+Content Scripts
 
 HTML / CSS
 
-Local storage (chrome.storage.local)
+Chrome Storage API
 
-No external frameworks required.
+No backend. No framework. No user tracking.
 
-📦 Project Structure
-/aegis-cognition
- ├── manifest.json
- ├── background.js            ← time tracking + enforcement
- ├── popup.html
- ├── popup.js
- ├── options.html
- ├── options.js               ← password-protected settings
- ├── blocked.html
- ├── blocked.js               ← override page
- ├── filter.js                ← adult + site blocking script
- └── icons/
+🧩 Project Structure
+aegis-cognition/
+│
+├── manifest.json
+├── background.js          # time tracking & enforcement logic
+├── popup.html / popup.js  # UI showing daily usage
+├── options.html           # settings page (styled)
+├── options.js             # password-protected settings logic
+├── blocked.html           # time limit / adult content block page
+├── blocked.js             # override password logic
+├── filter.js              # content filtering logic
+└── icons/ (optional)
 
-🔧 Installation (Developer Mode)
+🚀 Installation
+Developer Mode (local install)
 
-Download this repository as ZIP and extract
+Clone or download this repository
 
-Open Chrome → chrome://extensions/
+Open Chrome and go to:
 
-Enable Developer mode
+chrome://extensions
 
-Click Load unpacked
 
-Select project folder
+Enable Developer Mode
 
-Extension installs instantly.
+Click Load Unpacked
 
-🚀 How To Use
-1) First Time Setup
+Select the project folder
 
-Open popup
+Extension will appear in your toolbar.
 
-Click Settings
+🧭 Usage Guide
+1️⃣ First time setup
 
-Set parent password
+open extension popup
 
-Optional:
+click Settings
 
-configure limits
+set a parent password
 
-add blocked domains or keywords
+2️⃣ Set screen-time limits
 
-enable kid mode
+enter daily minutes
 
-2) Time Limits
+save
 
-default = no time limit
+password will be requested
 
-set global time limit in minutes
+3️⃣ Add blocked sites or keywords
 
-hit Save → asks parent password
+Examples:
 
-timer begins automatically
+youtube.com
+instagram.com
+reddit.com
 
-3) When Limit Reached
 
-site is blocked
+Keywords example:
 
-“Override access” screen displays
+porn
+xxx
+nsfw
 
-enter password to continue
+4️⃣ When time is up
 
-4) Adult Sites
+extension blocks the site
 
-automatically blocked
+override requires password
 
-configurable list
+🔐 Privacy & Data Policy
 
-🔐 Privacy and Security
+Your data stays on your device.
 
-🔒 all data stored locally on your device
+❌ no servers
 
-❌ no internet usage tracking server
+❌ no analytics
 
-❌ no data collection
+❌ no tracking
 
-❌ no third-party analytics
+✔ local storage only (chrome.storage.local)
 
-✔ can be verified via GitHub code
+✔ inspectable source code
 
-Password is stored in chrome.storage.local.
+Password is currently stored in plain text locally
+(optional upgrade: hashing supported — see roadmap)
 
-(Optional improvement: hashing password with SHA-256.)
-
-🧩 Key Implementation Details (interview-useful)
+🛠️ Implementation Details
 
 This project demonstrates:
 
-Chrome Manifest V3 architecture
+manifest v3 lifecycle management
 
-service worker lifecycle and limitations
+service workers vs background pages
 
-periodic timers + tab event listeners
+Chrome storage event synchronization
 
-selective content blocking injection
+dynamic content blocking architecture
 
-whitelisting logic
+secure override flows
 
-secure UI flows
+UX constraints inside popup environment
 
-CSP-safe DOM manipulation
-
-UX constraints of Chrome popup auto-close
-
-state resetting strategies
-
-Great talking points for interviews.
+Excellent talking points for technical interviews.
 
 🧭 Known Limitations
 
-password stored unhashed (can be improved)
+password is stored unhashed locally
 
-does not prevent Chrome extension uninstall
+cannot prevent user from uninstalling extension
 
-persistent blocking depends on Chrome running
+some adult sites rely on obfuscation
 
-no cross-device sync yet
+time tracking does not sync across devices (yet)
 
-🛣 Future Work / Roadmap
+🗺️ Roadmap
 
-☁ Firebase sync across devices
+🔑 hash & salt password before storage
 
-🔑 hashed password storage
+🌐 Firebase / cloud sync for families
 
-👁️‍🗨 incognito mode enforcement
+📊 weekly analytics dashboard
 
-🧒 hard kid-mode profile
+🧑‍👧‍👦 full “hard” kid-lock mode
 
-📊 weekly usage reports & charts
+🌙 incognito support
 
-🚀 publish to Chrome Web Store
+🛍 publish to Chrome Web Store
+
+Pull requests welcome.

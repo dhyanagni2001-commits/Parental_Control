@@ -84,6 +84,3 @@ no analytics
 
 everything is stored only on your device
 
-💼 Resume Summary
-
-Chrome extension for parental control and screen-time management. Implements time tracking, blocking, adult-content filtering, password-protected overrides, and secure settings using Manifest V3 — with 100% local storage and zero tracking.
